@@ -1,0 +1,79 @@
+
+## Termux-X11
+
+A simple, messy way to run a fully functional xfce desktop in Termux-X11.
+
+Keep in mind I'm not a security expert so don't knock me if I didn't think of something in that regard. 
+
+## PREREQUISITES ##
+
+# Install Termux and Termux-X11 from Google play or thier official Github repositories.
+
+Termux
+https://github.com/termux/termux-app/releases
+
+Termux-11
+https://github.com/termux/termux-x11/releases
+
+# Install updates and initialize x11-repo (assuming you have a fresh Termux installation)... And yes, I prefer apt over pkg.
+
+apt update && apt upgrade -y
+
+apt install x11-repo termux-x11
+
+## DESKTOP & APPLICATIONS ##
+
+# Install a desktop environment (this is based on xfce, I am sure it can be modified to use other environments but I have not tried any).
+
+apt install xfce4 xfce4-goodies
+
+# Install a web browser of your choice.
+
+apt install firefox
+
+apt install chromium
+
+# Install an image viewer.
+
+apt install ristretto
+
+# Install whatever else you want to run.
+
+apt install gedit vlc gimp inkscape
+
+## SCRIPT TO RUN UT ##
+
+# Create a script to launch your desktop environment in the Termux-X11 app.
+
+nano start-x11.sh
+
+# Paste this inside the file.
+
+#############
+
+#!bin/bash
+termux-x11 :1 -xstartup "dbus-launch --exit-with-session xfce4-session" &
+clear
+echo .
+echo .
+echo "Switch to X11 to access your desktop."
+
+##############
+
+# Alternatively, you can download a copy of the one I use, which includes a personalized Welcome message.
+
+apt install wget
+
+wget https://github.com/justahack17/termux-x11-desktop-xfce/blob/main/start-x11.sh
+
+# Now make the script executable.
+
+chmod +x start-x11.sh
+
+# Now give it a try!
+
+bash start-x11.sh
+
+** Switch to the Termux:11 app to start using your desktop. **
+
+## Enjoy your fully functional, on-demand XFCE desktop! That is actually usable!!
