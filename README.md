@@ -1,4 +1,4 @@
 # termux-xfce-desktop
 xfce desktop for termux-x11
 
-SEE INSTRUCTIO.TXT
+SEE INSTRUCTIONS.TXT
